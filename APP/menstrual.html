@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menstrual Tracker</title>
+    <link rel="stylesheet" href="menstrural.css">
+    <script>
+        function goBack() {
+            window.history.length > 1 ? window.history.back() : window.location.href = "index.html";
+        }
+
+        function calculateMenstrualCycle() {
+            const lastPeriodInput = document.getElementById("last-period").value;
+            const cycleLengthInput = document.getElementById("cycle-length").value;
+
+            if (!lastPeriodInput || !cycleLengthInput) {
+                document.getElementById("result").innerText = "Please enter all details.";
+                return;
+            }
+
+            const lastPeriodDate = new Date(lastPeriodInput);
+            const cycleLength = parseInt(cycleLengthInput);
+
+            if (isNaN(cycleLength) || cycleLength < 21 || cycleLength > 35) {
+                document.getElementById("result").innerText = "Enter a cycle length between 21 and 35 days.";
+                return;
+            }
+
+            // Calculate next period (cycle length after last period)
+            const nextPeriodDate = new Date(lastPeriodDate);
+            nextPeriodDate.setDate(nextPeriodDate.getDate() + cycleLength);
+            const nextPeriodString = nextPeriodDate.toDateString();
+
+            // Calculate ovulation date (14 days before next period)
+            const ovulationDate = new Date(nextPeriodDate);
+            ovulationDate.setDate(ovulationDate.getDate() - 14);
+            const ovulationString = ovulationDate.toDateString();
+
+            document.getElementById("result").innerHTML =
+                `Your estimated next period start date: <strong>${nextPeriodString}</strong><br>
+                 Estimated ovulation date: <strong>${ovulationString}</strong>`;
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <button class="back-button" onclick="goBack()">⬅ Back</button>
+        <h1>Menstrual Tracker</h1>
+    </header>
+
+    <main class="container">
+        <div class="tracker-box">
+            <h2>Track Your Menstrual Cycle</h2>
+            <p>Enter the first day of your last period and your cycle length.</p>
+            <label for="last-period">Last Period Date:</label>
+            <input type="date" id="last-period">
+            <label for="cycle-length">Cycle Length (Days):</label>
+            <input type="number" id="cycle-length" placeholder="e.g., 28">
+            <button onclick="calculateMenstrualCycle()">Calculate</button>
+            <p id="result"></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SHEcurity. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

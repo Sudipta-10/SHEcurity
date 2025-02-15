@@ -1,0 +1,73 @@
+/* Base Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Wrapper */
+.tracker-wrapper {
+    max-width: 600px;
+    width: 90%;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Header */
+header {
+    background: #ff7f50;
+    color: white;
+    padding: 15px;
+    border-radius: 10px 10px 0 0;
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Form & Inputs */
+.tracker-container {
+    padding: 20px;
+}
+
+.cycle-info label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.cycle-info input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#calculate {
+    margin-top: 15px;
+    background: #ff7f50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#calculate:hover {
+    background: #ff6347;
+}
+
+/* Footer */
+footer {
+    margin-top: 20px;
+    padding:

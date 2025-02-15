@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOS Alert System</title>
+    <link rel="stylesheet" href="source_features.css">
+    <script src="source_features.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="top-nav">
+            <button class="back-btn" onclick="goBack()">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+            <h1>SOS Alert System</h1>
+        </nav>
+    </header>
+
+    <main class="sos-container">
+        <h2>Send Emergency SOS</h2>
+        <button id="sendSOS" onclick="sendSOS()">🚨 Send SOS Alert</button>
+
+        <h2>Manage Emergency Contacts</h2>
+        <div class="add-contact">
+            <input type="text" id="contactName" placeholder="Enter Name">
+            <input type="text" id="contactNumber" placeholder="Enter Phone Number">
+            <button onclick="addContact()">Add Contact</button>
+        </div>
+
+        <h2>Saved Contacts</h2>
+        <ul id="userContacts" class="user-contact-list">
+            <li>Police: <span>100</span> <a href="tel:100" class="call-btn">📞 Call</a></li>
+            <li>Fire Brigade: <span>101</span> <a href="tel:101" class="call-btn">📞 Call</a></li>
+            <li>Ambulance: <span>102</span> <a href="tel:102" class="call-btn">📞 Call</a></li>
+            <li>Emergency 1: <span>8293381800</span> <a href="tel:8293381800" class="call-btn">📞 Call</a></li>
+            <li>Emergency 2: <span>9064229677</span> <a href="tel:9064229677" class="call-btn">📞 Call</a></li>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Women Safety & Health Monitoring System</p>
+    </footer>
+
+</body>
+</html>

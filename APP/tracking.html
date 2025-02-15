@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Location Tracking</title>
+    <link rel="stylesheet" href="tracking.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <script src="tracking.js"></script>
+
+</head>
+<body>
+
+    <!-- Header with Back Button -->
+    <header>
+        <button class="back-button" onclick="goBack()">Back</button>
+        <h1>Real-Time Location Tracking</h1>
+    </header>
+
+    <!-- Tracking Map Section -->
+    <div class="container">
+        <h2>Track Your Location</h2>
+        <p>Click the button below to find your real-time location.</p>
+        <button onclick="getLocation()">Get My Location</button>
+        <div id="map"></div>
+        <p id="location-info"></p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Women Safety & Health Monitoring System. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 0, lng: 0 },
+                zoom: 15
+            });
+
+            var marker = new google.maps.Marker({ position: { lat: 0, lng: 0 }, map: map });
+
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var userLocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+
+                map.setCenter(userLocation);
+                marker.setPosition(userLocation);
+
+                document.getElementById('location-info').innerText = 
+                    `Latitude: ${userLocation.lat}, Longitude: ${userLocation.lng}`;
+            }, function() {
+                alert('Geolocation not supported or permission denied.');
+            });
+        }
+
+        function getLocation() {
+            initMap();
+        }
+    </script>
+
+</body>
+</html>

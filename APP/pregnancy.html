@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregnancy Tracker</title>
+    <link rel="stylesheet" href="pregnancy.css">
+    <script>
+        function goBack() {
+            window.history.length > 1 ? window.history.back() : window.location.href = "index.html";
+        }
+
+        function calculatePregnancy() {
+            const lastPeriodInput = document.getElementById("last-period").value;
+            if (!lastPeriodInput) {
+                document.getElementById("result").innerText = "Please enter the first day of your last period.";
+                return;
+            }
+
+            const lastPeriodDate = new Date(lastPeriodInput);
+            const today = new Date();
+            const timeDiff = today - lastPeriodDate;
+            const weeksPregnant = Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 7));
+
+            // Calculate Due Date (280 days from last period)
+            const dueDate = new Date(lastPeriodDate);
+            dueDate.setDate(dueDate.getDate() + 280);
+            const dueDateString = dueDate.toDateString();
+
+            if (weeksPregnant >= 0 && weeksPregnant <= 40) {
+                document.getElementById("result").innerHTML = 
+                    `You are approximately <strong>${weeksPregnant} weeks</strong> pregnant.<br>
+                     Your estimated due date is: <strong>${dueDateString}</strong>.`;
+            } else {
+                document.getElementById("result").innerText = "Invalid date. Please check your input.";
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <button class="back-button" onclick="goBack()">⬅ Back</button>
+        <h1>Pregnancy Tracker</h1>
+    </header>
+
+    <main class="container">
+        <div class="tracker-box">
+            <h2>Track Your Pregnancy</h2>
+            <p>Enter the first day of your last period to calculate your pregnancy progress and due date.</p>
+            <input type="date" id="last-period">
+            <button onclick="calculatePregnancy()">Calculate</button>
+            <p id="result"></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SHEcurity. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

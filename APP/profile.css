@@ -1,0 +1,100 @@
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(140deg, #fdfbfb 0%, #ebedee 100%);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.profile-container {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.back-button {
+    background: #ff4757;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.profile-card h2 {
+    margin-bottom: 10px;
+}
+
+.profile-picture img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.profile-picture input {
+    display: block;
+    margin: auto;
+    padding: 5px;
+}
+
+.user-info {
+    margin: 15px 0;
+}
+
+.user-info p {
+    margin: 5px 0;
+}
+
+h3 {
+    margin-top: 20px;
+}
+
+#contactList {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+#contactList li {
+    margin: 5px 0;
+}
+
+.add-contact {
+    margin-top: 10px;
+}
+
+.add-contact input {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 5px;
+    display: block;
+    margin: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-contact button {
+    background: #2ed573;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+}

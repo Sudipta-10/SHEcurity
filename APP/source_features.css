@@ -1,0 +1,158 @@
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f8f9fa;
+    color: #333;
+}
+
+/* Top Navigation */
+.top-nav {
+    background: #ff4757;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+.top-nav h1 {
+    font-size: 1.5rem;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.back-btn i {
+    margin-right: 5px;
+}
+
+/* SOS Container */
+.sos-container {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.sos-container h2 {
+    margin-bottom: 15px;
+}
+
+/* SOS Button */
+#sendSOS {
+    background: #ff4757;
+    color: white;
+    padding: 15px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+#sendSOS:hover {
+    background: #e84118;
+}
+
+/* Add Emergency Contact */
+.add-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.add-contact input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.add-contact button {
+    background: #28a745;
+    color: white;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.add-contact button:hover {
+    background: #218838;
+}
+
+/* Contact List */
+.user-contact-list {
+    list-style: none;
+    padding: 0;
+}
+
+.user-contact-list li {
+    background: #ffebeb;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.call-btn {
+    background: #28a745;
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.call-btn:hover {
+    background: #218838;
+}
+
+/* Delete Contact Button */
+.user-contact-list button {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.user-contact-list button:hover {
+    background: #c82333;
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    padding: 15px;
+    background: #222;
+    color: white;
+    text-align: center;
+    font-size: 0.9rem;
+}

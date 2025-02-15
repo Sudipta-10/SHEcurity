@@ -1,0 +1,65 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(140deg, #fdfbfb 0%, #ebedee 100%);
+    color: #333;
+}
+
+/* Navigation Bar */
+.top-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ff7f50;
+    padding: 1rem;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.back-btn {
+    background: white;
+    color: #ff7f50;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Tips Container */
+.tips-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.tip {
+    background: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tip h2 {
+    color: #ff7f50;
+}
+
+.tip p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background: #ff7f50;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+}

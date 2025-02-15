@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Contacts</title>
+    <link rel="stylesheet" href="emergency.css">
+    <script src="emergency.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="top-nav">
+            <button class="back-btn" onclick="goBack()">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+            <h1>Emergency Contacts</h1>
+        </nav>
+    </header>
+
+    <main class="emergency-container">
+        <h2>Saved Emergency Numbers</h2>
+        <ul class="contact-list">
+            <li><i class="fas fa-phone-alt"></i> Police: <span>100</span></li>
+            <li><i class="fas fa-fire"></i> Fire Brigade: <span>101</span></li>
+            <li><i class="fas fa-ambulance"></i> Ambulance: <span>102</span></li>
+            <li><i class="fas fa-phone"></i> Emergency Number 1: <span>8293381800</span></li>
+            <li><i class="fas fa-phone"></i> Emergency Number 2: <span>9064229677</span></li>
+        </ul>
+
+        <h2>Add Your Emergency Contact</h2>
+        <div class="add-contact">
+            <input type="text" id="contactName" placeholder="Enter Name">
+            <input type="text" id="contactNumber" placeholder="Enter Phone Number">
+            <button onclick="addContact()">Add Contact</button>
+        </div>
+
+        <h2>Your Saved Contacts</h2>
+        <ul id="userContacts" class="user-contact-list">
+            <!-- User contacts will appear here -->
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Women Safety & Health Monitoring System</p>
+    </footer>
+
+</body>
+</html>

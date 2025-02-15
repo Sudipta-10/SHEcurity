@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #7f7fd5, #86a8e7, #91eae4);
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .input-field {
+            position: relative;
+        }
+
+        .input-field input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .input-field input:focus {
+            border-color: #7f7fd5;
+            outline: none;
+        }
+
+        .input-field label {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #666;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .input-field input:focus ~ label,
+        .input-field input:valid ~ label {
+            top: -10px;
+            left: 10px;
+            font-size: 14px;
+            background: white;
+            padding: 0 5px;
+            color: #7f7fd5;
+        }
+
+        .submit-btn {
+            background: #7f7fd5;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #6c6cbe;
+        }
+
+        .error {
+            color: #ff3860;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .social-login {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .social-login p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icons button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons button:hover {
+            background: #f5f5f5;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Create Account</h1>
+        <form class="form" id="signup-form">
+            <div class="input-field">
+                <input type="text" id="username" required>
+                <label for="username">Username</label>
+                <div class="error" id="username-error"></div>
+            </div>
+            <div class="input-field">
+                <input type="email" id="email" required>
+                <label for="email">Email</label>
+                <div class="error" id="email-error"></div>
+            </div>
+            <div class="input-field">
+                <input type="password" id="password" required>
+                <label for="password">Password</label>
+                <div class="error" id="password-error"></div>
+            </div>
+            <div class="input-field">
+                <input type="password" id="confirm-password" required>
+                <label for="confirm-password">Confirm Password</label>
+                <div class="error" id="confirm-password-error"></div>
+            </div>
+            <button type="submit" class="submit-btn">Sign Up</button>
+        </form>
+        
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('signup-form');
+        const username = document.getElementById('username');
+        const email = document.getElementById('email');
+        const password = document.getElementById('password');
+        const confirmPassword = document.getElementById('confirm-password');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            validateInputs();
+        });
+
+        const setError = (element, message) => {
+            const errorDisplay = document.getElementById(`${element.id}-error`);
+            errorDisplay.textContent = message;
+            errorDisplay.style.display = 'block';
+            element.style.borderColor = '#ff3860';
+        };
+
+        const setSuccess = (element) => {
+            const errorDisplay = document.getElementById(`${element.id}-error`);
+            errorDisplay.style.display = 'none';
+            element.style.borderColor = '#9c9cff';
+        };
+
+        const isValidEmail = (email) => {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(String(email).toLowerCase());
+        };
+
+        const validateInputs = () => {
+            const usernameValue = username.value.trim();
+            const emailValue = email.value.trim();
+            const passwordValue = password.value.trim();
+            const confirmPasswordValue = confirmPassword.value.trim();
+
+            if (usernameValue === '') {
+                setError(username, 'Username is required');
+            } else if (usernameValue.length < 3) {
+                setError(username, 'Username must be at least 3 characters');
+            } else {
+                setSuccess(username);
+            }
+
+            if (emailValue === '') {
+                setError(email, 'Email is required');
+            } else if (!isValidEmail(emailValue)) {
+                setError(email, 'Please enter a valid email');
+            } else {
+                setSuccess(email);
+            }
+
+            if (passwordValue === '') {
+                setError(password, 'Password is required');
+            } else if (passwordValue.length < 8) {
+                setError(password, 'Password must be at least 8 characters');
+            } else {
+                setSuccess(password);
+            }
+
+            if (confirmPasswordValue === '') {
+                setError(confirmPassword, 'Please confirm your password');
+            } else if (confirmPasswordValue !== passwordValue) {
+                setError(confirmPassword, 'Passwords do not match');
+            } else {
+                setSuccess(confirmPassword);
+            }
+        };
+    </script>
+</body>
+</html>

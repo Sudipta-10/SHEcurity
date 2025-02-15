@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="profile.css">
+    <script src="profile.js" defer></script>
+</head>
+<body>
+
+    <div class="profile-container">
+        <button class="back-button" onclick="goBack()">← Back</button>
+
+        <div class="profile-card">
+            <h2>User Profile</h2>
+            
+            <!-- Profile Picture Section -->
+            <div class="profile-picture">
+                <img id="profileImg" src="default-avatar.png" alt="Profile Picture">
+                <input type="file" id="uploadImage" accept="image/*">
+            </div>
+
+            <!-- User Information -->
+            <div class="user-info">
+                <p><strong>Name:</strong> <span id="userName">John Doe</span></p>
+                <p><strong>Email:</strong> <span id="userEmail">john.doe@example.com</span></p>
+                <p><strong>Phone:</strong> <span id="userPhone">+91 9876543210</span></p>
+                <p><strong>Address:</strong> <span id="userAddress">New Delhi, India</span></p>
+            </div>
+
+            <!-- Emergency Contacts Section -->
+            <h3>Emergency Contacts</h3>
+            <ul id="contactList">
+                <li>Police: <a href="tel:100">100</a></li>
+                <li>Fire Brigade: <a href="tel:101">101</a></li>
+                <li>Ambulance: <a href="tel:102">102</a></li>
+                <li>Custom Contact: <a href="tel:8293381800">8293381800</a></li>
+                <li>Custom Contact: <a href="tel:9064229677">9064229677</a></li>
+            </ul>
+
+            <!-- Add New Emergency Contact -->
+            <div class="add-contact">
+                <input type="text" id="newContactName" placeholder="Enter Contact Name">
+                <input type="tel" id="newContactNumber" placeholder="Enter Contact Number">
+                <button onclick="addContact()">Add Contact</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="profile.js"></script>
+</body>
+</html>
